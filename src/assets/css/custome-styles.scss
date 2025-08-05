@@ -1,0 +1,313 @@
+/* Main Container */
+.finance-container {
+  font-family: 'Tajawal', sans-serif;
+  background-color: #f8fafc;
+}
+
+/* Color Scheme Based on Logo */
+$primary-color: #2a5d8a;  // Dark blue from typical finance logos
+$accent-color: #4caf50;   // Green for Islamic finance
+$highlight-color: #f9a825; // Gold for highlights
+$text-color: #2c3e50;
+$light-text: #f8fafc;
+
+/* Hero Banner */
+.hero-banner {
+  position: relative;
+  height: 50vh;
+  min-height: 700px;
+  overflow: hidden;
+  
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: brightness(0.9);
+    transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+}
+
+.hero-content-below {
+  background: linear-gradient(to bottom, rgba(248, 250, 252, 0.9), #f8fafc);
+  padding: 4rem 1rem;
+  text-align: center;
+  margin-top: -5px; // Remove gap between image and content
+  
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: $primary-color;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .hero-text {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: $text-color;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+}
+
+.features-section {
+  .section-header {
+    margin-bottom: 3rem;
+
+    .section-title {
+      font-size: 2.5rem;
+      color: $primary-color;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .section-divider {
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(to right, $primary-color, $accent-color);
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+  }
+
+  .feature-card {
+    border-radius: 16px !important;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    height: 100%;
+    overflow: hidden;
+    border-left: 4px solid transparent;
+    background-color: white;
+
+    &-primary {
+      border-left-color: $primary-color;
+      .feature-icon {
+        background-color: rgba($primary-color, 0.1);
+        mat-icon {
+          color: $primary-color;
+        }
+      }
+    }
+
+    &-accent {
+      border-left-color: $accent-color;
+      .feature-icon {
+        background-color: rgba($accent-color, 0.1);
+        mat-icon {
+          color: $accent-color;
+        }
+      }
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 1rem;
+      transition: all 0.3s ease;
+
+      mat-icon {
+        font-size: 30px;
+        width: 30px;
+        height: 30px;
+        transition: all 0.3s ease;
+      }
+    }
+
+    &:hover .feature-icon {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    mat-card-header {
+      padding: 1.5rem 1.5rem 0;
+      margin-bottom: 1rem;
+    }
+
+    mat-card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: $text-color;
+    }
+
+    mat-card-content {
+      padding: 0 1.5rem 1.5rem;
+      color: lighten($text-color, 20%);
+      line-height: 1.7;
+    }
+  }
+}
+
+/* CTA Section */
+.cta-section {
+  margin-top: 4rem;
+
+  .cta-btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    background: linear-gradient(45deg, $primary-color, darken($primary-color, 10%));
+    color: white;
+    box-shadow: 0 4px 20px rgba($primary-color, 0.3);
+    transition: all 0.3s ease;
+
+    mat-icon {
+      margin-right: 0.5rem;
+      transform: rotate(180deg);
+    }
+
+    &:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 6px 25px rgba($primary-color, 0.4);
+      background: linear-gradient(45deg, darken($primary-color, 5%), darken($primary-color, 15%));
+    }
+  }
+}
+
+/* Floating Action Buttons */
+.fab-container {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  button {
+    width: 60px;
+    height: 60px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    &:hover {
+      transform: scale(1.1) translateY(-5px);
+    }
+
+    mat-icon {
+      font-size: 28px;
+    }
+  }
+
+  .whatsapp-fab {
+    background-color: #25D366;
+    &:hover {
+      background-color: darken(#25D366, 8%);
+    }
+  }
+
+  .call-fab {
+    background-color: $primary-color;
+    &:hover {
+      background-color: darken($primary-color, 8%);
+    }
+  }
+}
+
+/* Animation Classes */
+.animate__animated {
+  opacity: 0; // Start invisible for fade-in effects
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .hero-content-below {
+    .hero-title {
+      font-size: 3rem;
+    }
+    .hero-text {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-banner {
+    height: 40vh;
+    min-height: 350px;
+  }
+  
+  .hero-content-below {
+    padding: 3rem 1rem;
+    
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    .hero-text {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-banner {
+    height: 35vh;
+    min-height: 300px;
+  }
+  
+  .hero-content-below {
+    padding: 2rem 1rem;
+    
+    .hero-title {
+      font-size: 2rem;
+    }
+    .hero-text {
+      font-size: 1rem;
+      padding: 1rem;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-banner {
+    height: 30vh;
+    min-height: 250px;
+  }
+  
+  .hero-content-below {
+    padding: 1.5rem 1rem;
+    
+    .hero-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .hero-text {
+      font-size: 0.9rem;
+    }
+  }
+  
+  .fab-container {
+    bottom: 20px;
+    left: 20px;
+    
+    button {
+      width: 50px;
+      height: 50px;
+      
+      mat-icon {
+        font-size: 24px;
+      }
+    }
+  }
+}

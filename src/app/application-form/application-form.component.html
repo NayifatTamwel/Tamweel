@@ -1,0 +1,46 @@
+<!-- application-form.component.html -->
+<div class="application-form-container" dir="rtl">
+  <h2 class="form-title">تقديم طلب التمويل</h2>
+  <mat-divider class="form-divider"></mat-divider>
+
+  <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()" class="form-content">
+    <!-- Phone Number Field -->
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>رقم الجوال</mat-label>
+      <span matPrefix>+966 &nbsp;</span>
+      <input matInput 
+             formControlName="phoneNumber" 
+             placeholder="5XXXXXXXX"
+             type="tel"
+             maxlength="9">
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-error *ngIf="applicationForm.get('phoneNumber')?.hasError('required')">
+        رقم الجوال مطلوب
+      </mat-error>
+      <mat-error *ngIf="applicationForm.get('phoneNumber')?.hasError('pattern')">
+        رقم الجوال يجب أن يبدأ بـ 5 ويتكون من 9 أرقام
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Additional Fields (optional) -->
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>الاسم الكامل</mat-label>
+      <input matInput formControlName="fullName">
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    
+    <!-- Submit Button -->
+    <div class="form-actions">
+      <button mat-raised-button 
+              color="primary" 
+              type="submit"
+              [disabled]="applicationForm.invalid || isSubmitting">
+        <span *ngIf="!isSubmitting">إرسال الطلب</span>
+        <span *ngIf="isSubmitting">جاري الإرسال...</span>
+        <mat-icon *ngIf="!isSubmitting">send</mat-icon>
+        <mat-spinner *ngIf="isSubmitting" diameter="24"></mat-spinner>
+      </button>
+    </div>
+  </form>
+</div>

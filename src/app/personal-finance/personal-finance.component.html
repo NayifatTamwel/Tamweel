@@ -1,0 +1,117 @@
+<div class="container-fluid px-0 finance-container mt-3" dir="rtl">
+    <!-- Hero Banner with Image Only -->
+    <div class="hero-banner">
+        <img src="assets/images/Tamwel.png" alt="التمويل الشخصي" class="hero-image" loading="lazy">
+    </div>
+    
+    <!-- Hero Content Below Image -->
+    <div class="hero-content-below">
+        <h1 class="hero-title animate__animated animate__fadeInUp">التمويل الشخصي</h1>
+        <p class="hero-text animate__animated animate__fadeInUp animate__delay-1s">
+            تقدم شركة النايفات للتمويل حلول تمويل شخصي متوافقة مع الشريعة الإسلامية للسعوديين والمقيمين، مع إجراءات
+            مرنة وسريعة وإمكانية إعادة التمويل عند الحاجة.
+        </p>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="container py-5">
+        <!-- Features Showcase -->
+        <div class="features-section">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title animate__animated animate__fadeIn">مميزات التمويل الشخصي</h2>
+                <div class="section-divider animate__animated animate__zoomIn animate__delay-1s"></div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Feature Cards with Staggered Animations -->
+                <div class="col-md-6 animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                    <mat-card class="feature-card feature-card-primary">
+                        <mat-card-header>
+                            <div class="feature-icon">
+                                <mat-icon>verified</mat-icon>
+                            </div>
+                            <mat-card-title>تمويل متوافق مع الشريعة الإسلامية</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>حلول تمويلية خالية من الفوائد الربوية ومتوافقة مع أحكام الشريعة</p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+
+                <div class="col-md-6 animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+                    <mat-card class="feature-card">
+                        <mat-card-header>
+                            <div class="feature-icon">
+                                <mat-icon>groups</mat-icon>
+                            </div>
+                            <mat-card-title>تمويل السعوديين والمقيمين</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>مرونة في المبالغ المالية حسب احتياجاتك</p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+
+                <div class="col-md-6 animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+                    <mat-card class="feature-card">
+                        <mat-card-header>
+                            <div class="feature-icon">
+                                <mat-icon>monetization_on</mat-icon>
+                            </div>
+                            <mat-card-title>استقطاع يصل إلى ٧٠٪؜ ويتم احتساب الدعم الحكومي من الدخل</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>مرونة في الاستقطاعات مع أخذ الدعم الحكومي في الاعتبار</p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+
+                <div class="col-md-6 animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
+                    <mat-card class="feature-card">
+                        <mat-card-header>
+                            <div class="feature-icon">
+                                <mat-icon>person</mat-icon>
+                            </div>
+                            <mat-card-title>العمر 20-60 سنة (والمتقاعدين حتى 71 سنة)</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>شروط مرنة تناسب مختلف الفئات العمرية</p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+
+                <div class="col-md-6 animate__animated animate__fadeInUp" style="animation-delay: 1s">
+                    <mat-card class="feature-card feature-card-accent">
+                        <mat-card-header>
+                            <div class="feature-icon">
+                                <mat-icon>savings</mat-icon>
+                            </div>
+                            <mat-card-title>بدون تحويل الراتب</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>لا تشترط تحويل الراتب مع مرونة في السداد</p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section text-center mt-5">
+            <button mat-raised-button color="primary" class="cta-btn animate__animated animate__pulse animate__infinite animate__slower" (click)="openApplicationForm()">
+                قدم طلبك الآن
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <button mat-fab class="whatsapp-fab animate__animated animate__bounceIn animate__delay-2s" (click)="openWhatsApp()" matTooltip="تواصل عبر واتساب">
+            <mat-icon svgIcon="whatsapp"></mat-icon>
+        </button>
+        <button mat-fab class="call-fab animate__animated animate__bounceIn animate__delay-3s" (click)="makePhoneCall()" matTooltip="اتصل بنا">
+            <mat-icon>call</mat-icon>
+        </button>
+    </div>
+</div>
