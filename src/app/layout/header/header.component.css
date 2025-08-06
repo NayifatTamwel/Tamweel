@@ -26,3 +26,58 @@
     nav .navbar-container{
       height: 6rem;
     }
+
+    /* Contact number container */
+.contact-number-container {
+  transition: all 0.3s ease;
+}
+
+.contact-number-container:hover {
+  background-color: #f0f7ff !important;
+  transform: scale(1.02);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .contact-number-container {
+    padding: 0.5rem !important;
+  }
+  .contact-number-container .fs-5 {
+    font-size: 1rem !important;
+  }
+}
+
+/* Contact number container */
+.contact-number-container {
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Hover effect */
+.contact-number-container:hover {
+  background-color: rgba(13, 110, 253, 0.1);
+}
+
+/* Mobile specific styles */
+@media (max-width: 576px) {
+  .navbar-container {
+    height: auto;
+    padding: 0.5rem 0;
+  }
+  
+  .header-logo {
+    max-height: 50px;
+  }
+  
+  .contact-number-container {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Make phone number clickable on mobile */
+.contact-number-container {
+  cursor: pointer;
+}
