@@ -4,13 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-path docs --base-href /Tamweel/ && cp src/robots.txt docs/ && cp src/sitemap.xml docs/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev:ssr": "ng run Tamweel:serve-ssr",
     "build:ssr": "ng build && ng run Tamweel:server:production",
     "serve:ssr": "node dist/Tamweel/server/main.js",
-    "prerender": "ng run Tamweel:prerender"
+    "prerender": "ng run Tamweel:prerender",
+      "build": "ng build --configuration production",
+  "postbuild": "cp src/robots.txt dist/Tamweel/ && cp src/sitemap.xml dist/Tamweel/ && cp src/google*.html dist/Tamweel/",
+  "deploy": "npx angular-cli-ghpages --dir=dist/Tamweel --no-silent"
   },
   "private": true,
   "dependencies": {
