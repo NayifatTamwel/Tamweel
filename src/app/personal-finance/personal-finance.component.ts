@@ -3,6 +3,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatDialog } from '@angular/material/dialog';
 import { ApplicationFormComponent } from '../application-form/application-form.component';
+import { SeoService } from '../Services/SeoService';
 
 @Component({
   selector: 'app-personal-finance',
@@ -10,7 +11,12 @@ import { ApplicationFormComponent } from '../application-form/application-form.c
   styleUrls: ['./personal-finance.component.scss']
 })
 export class PersonalFinanceComponent {
+    ngOnInit() {
+    this.seoService.updateMetaTags();
+  }
+
  constructor(
+  private seoService: SeoService,
     private matIconRegistry: MatIconRegistry,
     private dialog: MatDialog,
     private domSanitizer: DomSanitizer

@@ -5,10 +5,8 @@ import { PersonalFinanceComponent } from './personal-finance/personal-finance.co
 
 
 const routes: Routes = [
+
   { 
-    path: 'thank-you', 
-    component: ThankYouComponent 
-  },  { 
     path: 'personal-finance', 
     component: PersonalFinanceComponent 
   },
@@ -19,7 +17,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabledBlocking'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -38,7 +38,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ApplicationFormComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     MatSnackBarModule,
     RouterModule,
     HttpClientModule,

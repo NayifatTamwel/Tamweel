@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Tamweel",
+            "outputPath": "dist/Tamweel/browser",
             "baseHref": "/Tamweel/",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -99,6 +99,59 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/Tamweel/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "Tamweel:build:development",
+              "serverTarget": "Tamweel:server:development"
+            },
+            "production": {
+              "browserTarget": "Tamweel:build:production",
+              "serverTarget": "Tamweel:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "Tamweel:build:production",
+              "serverTarget": "Tamweel:server:production"
+            },
+            "development": {
+              "browserTarget": "Tamweel:build:development",
+              "serverTarget": "Tamweel:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
