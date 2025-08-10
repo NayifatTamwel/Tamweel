@@ -50,6 +50,7 @@ export class SeoService {
     script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FinancialService",
+      
       "name": "شركة النايفات للتمويل",
       "description": "حلول تمويل شخصي متوافقة مع الشريعة الإسلامية",
       "url": window.location.href,
@@ -63,7 +64,9 @@ export class SeoService {
         "@type": "PostalAddress",
         "addressCountry": "SA",
         "addressLocality": "Riyadh",
-        "streetAddress": "Your Street Address"
+        "streetAddress": "Nayifat Finance Company Paid-up Capital: 1.2 Billion P.O. Box 27389, Riyadh 11417, Saudi Arabia",
+      "postalCode": "12345",
+
       },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",

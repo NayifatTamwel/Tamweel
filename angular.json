@@ -24,6 +24,11 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              {
+    "glob": "google621cad0974d999b4.html",
+    "input": "src/assets", 
+    "output": "/"
+  },
                "src/robots.txt",
   "src/sitemap.xml"
             ],

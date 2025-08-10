@@ -27,7 +27,13 @@ export function app(): express.Express {
   server.get('*.*', express.static(distFolder, {
     maxAge: '1y'
   }));
-
+server.get('/google621cad0974d999b4.html', (req, res) => {
+  res.sendFile(join(distFolder, 'google621cad0974d999b4.html'), {
+    headers: {
+      'Content-Type': 'text/html'
+    }
+  });
+});
   // Dynamic robots.txt
   server.get('/robots.txt', (req, res) => {
     res.type('text/plain');
