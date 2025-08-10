@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Sitemap: https://nayifattamwel.github.io/Tamweel/sitemap.xml
