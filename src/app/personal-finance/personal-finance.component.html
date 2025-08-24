@@ -106,12 +106,33 @@
     </div>
 
     <!-- Floating Action Buttons -->
-    <div class="fab-container">
-        <button mat-fab class="whatsapp-fab animate__animated animate__bounceIn animate__delay-2s" (click)="openWhatsApp()" matTooltip="تواصل عبر واتساب">
-            <mat-icon svgIcon="whatsapp"></mat-icon>
-        </button>
-        <button mat-fab class="call-fab animate__animated animate__bounceIn animate__delay-3s" (click)="makePhoneCall()" matTooltip="اتصل بنا">
-            <mat-icon>call</mat-icon>
-        </button>
-    </div>
+  <!-- Floating Action Buttons -->
+<div class="fab-container">
+    <!-- Application Form Button with Submission Animation -->
+    <button mat-raised-button 
+            color="primary" 
+            class="animate__delay-1 rounded-pill fab-application-btn"
+            (click)="openApplicationForm()"
+            [class.is-submitting]="isSubmitting"
+            [disabled]="isSubmitting"
+            matTooltip="تقديم طلب التمويل"
+            #applicationBtn>
+            <mat-icon>request_quote</mat-icon>
+        <mat-spinner *ngIf="isSubmitting" diameter="20" strokeWidth="3"></mat-spinner>
+    </button>
+
+    <!-- WhatsApp FAB -->
+    <button mat-fab class="whatsapp-fab animate__animated animate__bounceIn animate__delay-2s" 
+            (click)="openWhatsApp()" 
+            matTooltip="تواصل عبر واتساب">
+        <mat-icon svgIcon="whatsapp"></mat-icon>
+    </button>
+    
+    <!-- Call FAB -->
+    <button mat-fab class="call-fab animate__animated animate__bounceIn animate__delay-3s" 
+            (click)="makePhoneCall()" 
+            matTooltip="اتصل بنا">
+        <mat-icon>call</mat-icon>
+    </button>
+</div>
 </div>

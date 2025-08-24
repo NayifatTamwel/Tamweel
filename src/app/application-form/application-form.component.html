@@ -1,19 +1,26 @@
 <!-- application-form.component.html -->
 <div class="application-form-container" dir="rtl">
-  <h2 class="form-title">تقديم طلب التمويل</h2>
+  <!-- Header with Close Button -->
+  <div class="form-header">
+    <h2 class="form-title">تقديم طلب التمويل</h2>
+    <button mat-icon-button class="close-button" (click)="onClose()" aria-label="إغلاق">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
   <mat-divider class="form-divider"></mat-divider>
 
   <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()" class="form-content">
     <!-- Phone Number Field -->
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>رقم الجوال</mat-label>
-      <span matPrefix>+966 &nbsp;</span>
+      <span matSuffix>+966 &nbsp;</span>
       <input matInput 
              formControlName="phoneNumber" 
              placeholder="5XXXXXXXX"
              type="tel"
              maxlength="9">
-      <mat-icon matSuffix>phone</mat-icon>
+      <mat-icon matPrefix>phone</mat-icon>
       <mat-error *ngIf="applicationForm.get('phoneNumber')?.hasError('required')">
         رقم الجوال مطلوب
       </mat-error>
@@ -26,12 +33,19 @@
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>الاسم الكامل</mat-label>
       <input matInput formControlName="fullName">
-      <mat-icon matSuffix>person</mat-icon>
+      <mat-icon matPrefix>person</mat-icon>
     </mat-form-field>
 
-    
-    <!-- Submit Button -->
+    <!-- Form Actions with Cancel Button -->
     <div class="form-actions">
+      <button mat-button 
+              type="button" 
+              class="cancel-button"
+              (click)="onClose()"
+              [disabled]="isSubmitting">
+        إلغاء
+      </button>
+      
       <button mat-raised-button 
               color="primary" 
               type="submit"

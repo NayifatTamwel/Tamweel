@@ -11,12 +11,17 @@ import { SeoService } from '../Services/Seo.Service';
   styleUrls: ['./personal-finance.component.scss']
 })
 export class PersonalFinanceComponent {
+  isSubmitting = false;
+  applicationBtn: any;
+
     ngOnInit() {
     this.seoService.setSeoData();
   }
+    
 
  constructor(
   private seoService: SeoService,
+  
     private matIconRegistry: MatIconRegistry,
     private dialog: MatDialog,
     private domSanitizer: DomSanitizer
@@ -35,14 +40,27 @@ export class PersonalFinanceComponent {
   makePhoneCall() {
     window.location.href = 'tel:+966598505540';
   }
+   // Open Application Form Dialog
   openApplicationForm() {
-    this.dialog.open(ApplicationFormComponent, {
-      width: '90%',
-      maxWidth: '800px',
-      panelClass: 'app-form-dialog',
-      direction: 'rtl',
-      disableClose: true,
-      autoFocus: false
-    });
+    // Show submitting state
+    this.isSubmitting = true;
+    
+    // Simulate form opening delay (remove this in production)
+    setTimeout(() => {
+      const dialogRef = this.dialog.open(ApplicationFormComponent, {
+        width: '90%',
+        maxWidth: '500px',
+        panelClass: 'app-form-dialog',
+        direction: 'rtl',
+        disableClose: true,
+        autoFocus: false
+      });
+
+      // Reset submitting state when dialog closes
+      dialogRef.afterClosed().subscribe(() => {
+        this.isSubmitting = false;
+      });
+    }, 500);
   }
+  
 }
