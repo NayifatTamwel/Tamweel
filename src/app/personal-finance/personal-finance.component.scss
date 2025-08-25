@@ -2,3 +2,46 @@
     z-index: 9999;
 }
 /* Enhanced FAB Container */
+ .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .benefits-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eaeaea;
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+        }
+        .benefits-list li:last-child {
+            border-bottom: none;
+        }
+        .benefits-list li::before {
+            content: "•";
+            color: #4a6580;
+            font-weight: bold;
+            display: inline-block;
+            width: 1.5em;
+            font-size: 1.4rem;
+            margin-left: 5px;
+        }
+        .highlight {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-right: 4px solid #4a6580;
+        }
+        .highlight p {
+            margin: 0;
+            font-weight: 500;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+        }
+        .highlight p mat-icon {
+            color: #4a6580;
+            margin-left: 10px;
+        }
+       
