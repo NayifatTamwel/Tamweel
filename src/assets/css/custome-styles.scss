@@ -21,7 +21,7 @@ $light-text: #f8fafc;
   .hero-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: scale-down;
     object-position: center;
     display: block;
     filter: brightness(0.9);
@@ -310,4 +310,49 @@ $light-text: #f8fafc;
       }
     }
   }
+}
+/* application-form-section.css */
+.application-form-section {
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 16px;
+    margin-top: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.section-subtitle {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.success-message {
+    padding: 40px;
+}
+
+.success-icon {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+.success-message h3 {
+    color: #4caf50;
+    margin-bottom: 16px;
+}
+
+.success-message p {
+    color: #666;
+    margin-bottom: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .application-form-section {
+        padding: 24px;
+        margin: 20px -15px;
+        border-radius: 0;
+    }
 }

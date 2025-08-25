@@ -59,6 +59,7 @@ export class EmailService {
   async sendApplicationEmail(applicationData: {
     phoneNumber: string;
     fullName: string;
+    nationalId?: string;
     additionalInfo?: string;
   }): Promise<{ success: boolean; message: string }> {
     const templateParams = {
@@ -66,7 +67,7 @@ export class EmailService {
       from_name: applicationData.fullName || 'مستخدم',
       phone_number: applicationData.phoneNumber,
       message: applicationData.additionalInfo || 'طلب تمويل جديد',
-      reply_to: 'noreply@yourdomain.com' // Or use a default email
+      reply_to: 'noreply@yourdomain.com' 
     };
 
     return this.sendEmail(templateParams);

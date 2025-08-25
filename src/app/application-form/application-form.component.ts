@@ -1,7 +1,5 @@
-// application-form.component.ts
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { EmailService } from '../Services/EmailService';
 
 @Component({
@@ -12,72 +10,88 @@ import { EmailService } from '../Services/EmailService';
 export class ApplicationFormComponent {
   applicationForm: FormGroup;
   isSubmitting = false;
+  isSubmitted = false;
+
+  @Output() formSubmitted = new EventEmitter<boolean>();
 
   constructor(
     private fb: FormBuilder,
-    private emailService: EmailService,
-    private dialogRef: MatDialogRef<ApplicationFormComponent>,
-    // private applicationService: ApplicationService
+    private emailService: EmailService
   ) {
     this.applicationForm = this.fb.group({
       phoneNumber: ['', [Validators.required, Validators.pattern(/^5\d{8}$/)]],
       fullName: [''],
-      // city: ['', Validators.required]
+  nationalId: ['', [saudiNationalIdValidator]], // Saudi ID validator
+      // monthlyIncome: ['', Validators.required],
+      message: ['']
     });
   }
 
-  onSubmit() {
-    if (this.applicationForm.valid) {
+  async onSubmit() {
+    if (this.applicationForm.valid && !this.isSubmitting) {
       this.isSubmitting = true;
       
-      const templateParams = {
-  name: this.applicationForm.value.fullName,
-  email: '',
-  from_name: this.applicationForm.value.fullName,
-  message: 'new application from phone number ',
-  phonenumber: this.applicationForm.value.phoneNumber,
-};
+      try {
+        const result = await this.emailService.sendApplicationEmail({
+          phoneNumber: this.applicationForm.value.phoneNumber,
+          fullName: this.applicationForm.value.fullName,
+          nationalId: this.applicationForm.value.nationalId,
+          additionalInfo: this.applicationForm.value.message
+        });
 
-this.emailService.sendEmail(templateParams).then((response) => {
-
-
-}).catch((error) => {
-
-  console.error('Email sending error:', error);
-}).finally(()=>{
- this.isSubmitting = false;
-        this.dialogRef.close(true);
-});
-    //   setTimeout(() => {
-    //     // this.applicationService.submitApplication(this.applicationForm.value)
-    //     //   .subscribe({
-    //     //     next: (response) => {
-    //     //       this.isSubmitting = false;
-    //     //       this.dialogRef.close(true); // Pass true to indicate success
-    //     //     },
-    //     //     error: (error) => {
-    //     //       this.isSubmitting = false;
-    //     //       // Show error message
-    //     //     }
-    //     //   });
-        
-    //     // For demo purposes, close after 2 seconds
-    //     this.isSubmitting = false;
-    //     this.dialogRef.close(true);
-    //   }, 2000);
+        if (result.success) {
+          this.isSubmitted = true;
+          this.formSubmitted.emit(true);
+          this.applicationForm.reset();
+          // You can show a success message here
+        } else {
+          // Show error message
+          console.error(result.message);
+        }
+      } catch (error) {
+        console.error('Error sending email:', error);
+      } finally {
+        this.isSubmitting = false;
+      }
     }
   }
 
-  onClose(): void {
-    if (!this.isSubmitting) {
-      this.dialogRef.close(false); // Pass false to indicate cancellation
-    }
+  onReset() {
+    this.applicationForm.reset();
+    this.isSubmitted = false;
+  }
+}
+
+export function saudiNationalIdValidator(control: AbstractControl): ValidationErrors | null {
+  const value = control.value;
+
+  if (!value) return null;
+
+  // Must be 10 digits
+  if (!/^\d{10}$/.test(value)) {
+    return { invalidFormat: true };
   }
 
-  // Optional: Handle escape key and backdrop click
-  onKeydown(event: KeyboardEvent): void {
-    if (event.key === 'Escape' && !this.isSubmitting) {
-      this.onClose();
-    }
-  }
+  // // Must start with 1 (citizen) or 2 (resident)
+  // if (!(value.startsWith('1') || value.startsWith('2'))) {
+  //   return { invalidStart: true };
+  // }
+
+  // // Validate with Luhn algorithm
+  // let sum = 0;
+  // for (let i = 0; i < 9; i++) {
+  //   let digit = +value[i];
+  //   if (i % 2 === 0) {
+  //     // Double every other digit
+  //     digit *= 2;
+  //     if (digit > 9) digit -= 9;
+  //   }
+  //   sum += digit;
+  // }
+  // const checkDigit = (10 - (sum % 10)) % 10;
+  // if (checkDigit !== +value[9]) {
+  //   return { invalidCheckDigit: true };
+  // }
+
+  return null;
 }

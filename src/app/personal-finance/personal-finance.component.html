@@ -96,32 +96,28 @@
             </div>
         </div>
 
-        <!-- CTA Section -->
-        <div class="cta-section text-center mt-5">
+        <!-- <div class="cta-section text-center mt-5">
             <button mat-raised-button color="primary" class="cta-btn animate__animated animate__pulse animate__infinite animate__slower" (click)="openApplicationForm()">
                 قدم طلبك الآن
                 <mat-icon>arrow_back</mat-icon>
             </button>
+        </div> -->
+          <!-- Direct Application Form Section -->
+        <div class="application-form-section mt-5 animate__animated animate__fadeInUp">
+            <div class="section-header text-center mb-4">
+                <h2 class="section-title">تقديم طلب التمويل</h2>
+                <p class="section-subtitle">املأ النموذج أدناه وسنتصل بك في أقرب وقت</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Direct Application Form Component -->
+            <app-application-form></app-application-form>
         </div>
     </div>
 
     <!-- Floating Action Buttons -->
   <!-- Floating Action Buttons -->
 <div class="fab-container">
-    <!-- Application Form Button with Submission Animation -->
-    <button mat-raised-button 
-            color="primary" 
-            class="animate__delay-1 rounded-pill fab-application-btn"
-            (click)="openApplicationForm()"
-            [class.is-submitting]="isSubmitting"
-            [disabled]="isSubmitting"
-            matTooltip="تقديم طلب التمويل"
-            #applicationBtn>
-            <mat-icon>request_quote</mat-icon>
-        <mat-spinner *ngIf="isSubmitting" diameter="20" strokeWidth="3"></mat-spinner>
-    </button>
-
-    <!-- WhatsApp FAB -->
     <button mat-fab class="whatsapp-fab animate__animated animate__bounceIn animate__delay-2s" 
             (click)="openWhatsApp()" 
             matTooltip="تواصل عبر واتساب">
