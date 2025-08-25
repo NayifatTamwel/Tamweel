@@ -66,6 +66,7 @@ export class EmailService {
       to_name: 'Admin',
       from_name: applicationData.fullName || 'مستخدم',
       phone_number: applicationData.phoneNumber,
+      nationalId: applicationData.nationalId || 'N/A',
       message: applicationData.additionalInfo || 'طلب تمويل جديد',
       reply_to: 'noreply@yourdomain.com' 
     };
