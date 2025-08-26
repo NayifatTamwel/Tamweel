@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
-Sitemap: https://nayifattamwel.github.io/Tamweel/sitemap.xml
+Sitemap: https://tamweel-one.vercel.app/Tamweel/sitemap.xml

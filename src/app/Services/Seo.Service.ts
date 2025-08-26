@@ -15,7 +15,7 @@ export class SeoService {
 
   setSeoData(
     
-    title: string = 'التمويل الشخصي | شركة النايفات للتمويل',
+    title: string = 'التمويل الشخصي | شركة  للتمويل',
     description: string = 'حلول تمويل شخصي متوافقة مع الشريعة الإسلامية للسعوديين والمقيمين',
     keywords: string = 'تمويل شخصي, تمويل اسلامي, تمويل بدون تحويل راتب'
   ) {
@@ -30,7 +30,7 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:title', content: title });
     this.meta.updateTag({ property: 'og:description', content: description });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
-    this.meta.updateTag({ property: 'og:url', content: 'https://nayifattamwel.github.io/Tamweel/' });
+    this.meta.updateTag({ property: 'og:url', content: 'https://tamweel-one.vercel.app/Tamweel/' });
     
     // Twitter Card
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
@@ -51,12 +51,12 @@ export class SeoService {
       "@context": "https://schema.org",
       "@type": "FinancialService",
       
-      "name": "شركة النايفات للتمويل",
+      "name": "شركة  للتمويل",
       "description": "حلول تمويل شخصي متوافقة مع الشريعة الإسلامية",
       "url": window.location.href,
-      "logo": "https://nayifattamwel.github.io/Tamweel/assets/images/Tamwel.png",
+      "logo": "https://tamweel-one.vercel.app/Tamweel/assets/images/Tamwel.png",
       "image": [
-        "https://nayifattamwel.github.io/Tamweel/assets/images/Tamwel.png",
+        "https://tamweel-one.vercel.app/Tamweel/assets/images/Tamwel.png",
       ],
       "telephone": "+966598505540",
       "priceRange": "$$", // Currency symbols (1-4) indicating price range
@@ -64,7 +64,7 @@ export class SeoService {
         "@type": "PostalAddress",
         "addressCountry": "SA",
         "addressLocality": "Riyadh",
-        "streetAddress": "Nayifat Finance Company Paid-up Capital: 1.2 Billion P.O. Box 27389, Riyadh 11417, Saudi Arabia",
+        "streetAddress": "Finance Company Paid-up Capital: 1.2 Billion P.O. Box 27389, Riyadh 11417, Saudi Arabia",
       "postalCode": "12345",
 
       },
@@ -78,45 +78,15 @@ export class SeoService {
         "@type": "ContactPoint",
         "contactType": "customer service",
         "telephone": "+966598505540",
-        "email": "CustomerCare@nayifat.co", // Add if available
+        "email": "CustomerCare@info.co", // Add if available
         "availableLanguage": ["Arabic", "English"]
       },
       "sameAs": [
-        "https://sa.linkedin.com/company/nayifat-instalment-company"
+        "https://sa.linkedin.com/company"
       ]
     });
     document.head.appendChild(script);
   }
 }
-  //  addStructuredData() {
-  //   // Remove existing structured data if any
-  //   const existingScript = document.getElementById('structured-data');
-  //   if (existingScript) {
-  //     existingScript.remove();
-  //   }
-
-  //   const script = document.createElement('script');
-  //   script.id = 'structured-data'; // Add ID for easy management
-  //   script.type = 'application/ld+json';
-  //   script.text = JSON.stringify({
-  //     "@context": "https://schema.org",
-  //     "@type": "FinancialService",
-  //     "name": "شركة النايفات للتمويل",
-  //     "description": "حلول تمويل شخصي متوافقة مع الشريعة الإسلامية",
-  //     "url": window.location.href,
-  //     "logo": "https://nayifattamwel.github.io/Tamweel/assets/images/Tamwel.png",
-  //     "telephone": "+966598505540",
-  //     "address": {
-  //       "@type": "PostalAddress",
-  //       "addressCountry": "SA"
-  //     },
-  //     "offers": {
-  //       "@type": "Offer",
-  //       "name": "التمويل الشخصي",
-  //       "description": "حلول تمويل متوافقة مع الشريعة الإسلامية",
-  //       "url": window.location.href
-  //     }
-  //   });
-  //   document.head.appendChild(script);
-  // }
+  
 }
